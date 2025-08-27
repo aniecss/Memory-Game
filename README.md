@@ -15,7 +15,7 @@ Jogo da memória simples feito com HTML, CSS e JavaScript.
 - JavaScript
 
 ## Como rodar
-
+https://aniecss.github.io/Memory-Game/
 1. Clone este repositório:
 ```bash
 git clone https://github.com/aniecss/Memory-Game.git
