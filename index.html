@@ -40,12 +40,15 @@
 
         <!-- Tabuleiro -->
         <div style="width: 100%; max-width: 900px; aspect-ratio: 2 / 1; background-color: #191f31; border-radius: 16px; padding: 20px; display: flex; justify-content: center; align-items: center;">
-            <div id="grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; width: 100%; height: 100%;">
+            
+            <div id="grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; width: 100%; height: 100%; margin: 0 auto;">
                 
                 <!-- carta -->
-                <div class="card" style="width: 75%; height: 20%; aspect-ratio: 1 / 1; background-color: #737373; border-radius: 8px; display: flex; justify-content: center; align-items: center;">
-                    <div class="front"></div>
-                    <div class="back"></div>
+                <div class="card" style="width: 100%; height: 25%; aspect-ratio: 2 / 1; background-color: #737373; border-radius: 30px; position: relative; transition: all450ms ease; transform-style: preserve-3d;">
+                    
+                    <div class="face front" style="width: 100%; height: 100%; border-radius: 30px ;position: absolute; background-color: #596da1;"></div>
+
+                    <div class="face back" style="background-color: yellow; backface-visibility: hidden;"></div>
                 </div>
             </div>
         </div>
