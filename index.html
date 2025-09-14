@@ -7,6 +7,7 @@
 </head>
 <body bgcolor="#12192a">
     <center>
+        <!-- Título e instruções -->
         <table cellpadding="20" cellspacing="5">
             <tr>
                 <th><font color="white" size="6">Jogo da Memória - 5x4</font></th>
@@ -15,6 +16,7 @@
                 <th><font color="#737373" size="3">As cartas começam simples. Clique (ou Enter/Espaço) para revelar. Encontre todos os pares.</font></th>
             </tr>
         </table>
+
         <!-- Informações -->
         <table border="2" width="800" height="600" cellspacing="2" cellpadding="5">
             <thead>
@@ -22,7 +24,7 @@
                     <th><font color="#737373" size="2">Movimentos: 0</font></th>
                     <th><font color="#737373" size="2">Tempo: 0s</font></th>
                     <th><font color="#737373" size="2">Pares 0/10</font></th>
-                    <th bgcolor="#38b6ff"><font color="white" size="2">🔄 Reiniciar</font></th>
+                    <th bgcolor="#38b6ff"><font color="white" size="2" onclick="reiniciar()" id="reiniciar">🔄 Reiniciar</font></th>
                     <th bgcolor="#737373"><font color="white" size="2">👀 Espiar</font></th>
                 </tr>
             </thead>
@@ -31,23 +33,64 @@
                     <td colspan="5">
                         <!-- Cartas -->
                         <table border="2" width="800" height="500" cellspacing="10">
-                            <tr>
-                                <td bgcolor="yellow" width="300" height="100"></td>
-                                <td bgcolor="blue" width="300" height="100"></td>
-                                <td bgcolor="red" width="300" height="100"></td>
-                                <td bgcolor="white" width="300" height="100"></td>
-                            </tr>
-                            <tr>
-                                <td bgcolor="red" width="300" height="100"></td>
-                                <td bgcolor="white" width="300" height="100"></td>
-                                <td bgcolor="blue" width="300" height="100"></td>
-                                <td bgcolor="yellow" width="300" height="100"></td>
+                            <tr id="grid">
+                               <!---->
+                                <td class="card" width="300" height="100">
+                                    <div class="frente"></div>
+                                    <div class="costa"></div>
+                                </td>
+                                
                             </tr>
                         </table>
+
                     </td>
                 </tr>>
             </tbody>
         </table>
     </center>
+    <script>
+    const listaCores = [
+        'vermelho',
+        'azul',
+        'amarelo',
+        'verde',
+        'laranja',
+        'roxo',
+        'preto',
+        'rosa',
+        'braco',
+        'marrom',
+    ]
+
+    const grid = document.getElementById('grid')
+
+    const criarCartas = (cor) => {
+        const card = document.createElement('td')
+        const frente = document.createElement('div')
+        const costa = document.createElement('div')
+
+        card.className = 'card'
+        costa.style.background = 'blue'
+        frente.style.background = 'red'
+
+        card.appendChild(frente)
+        card.appendChild(costa)
+    
+    }
+    function reiniciar() {
+        grid.innerHTML = ""
+
+        const duplicarLista = [...listaCores, ...listaCores]
+        const embaralharCarta = duplicarLista.sort(() => Math.random() - 0.5)
+
+        embaralharCarta.forEach((cor) => {
+            const card = criarCartas()
+            grid.appendChild(card)
+        })
+    }
+
+    reiniciar()
+    </script>
 </body>
 </html>
+
